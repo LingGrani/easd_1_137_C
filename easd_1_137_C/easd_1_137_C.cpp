@@ -39,12 +39,10 @@ void swap(int x, int y)
     ling[y] = temp;
 }
 
-void Selectionsort()
+void Selectionsort() //{10,12,3,1,6,7}
 {
     for (int lr = 0; lr < n - 1; lr++)
     {
-        for (lr; lr < n; lr++)
-        {
             int minv = lr;
             for (int i = (lr + 1); i < n; i++)
             {
@@ -53,8 +51,7 @@ void Selectionsort()
                     minv = i;
                 }
             }
-            swap(lr, minv);
-        }
+            swap(minv, lr);
     }
 }
 
