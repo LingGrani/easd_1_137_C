@@ -1,20 +1,78 @@
-// easd_1_137_C.cpp : This file contains the 'main' function. Program execution begins and ends there.
+#include <iostream>
+using namespace std;
+// 1. Algortima dibuat untuk menyelesaikan masalah karena komputer hanya bisa komputasi tidak bisa menggunakan naluri, seperti jika kita mengurutkan dari terkecil 3, 2, 1, sebagai manusia dapat diselesaikan dengan mudah, namun tentu komputer tidak bisa menggunakan cara manusiawi melaikan perlu algoritma untuk menyelesaikannya 
+// 2. Efisiensi dalam suatu progra dapat diketahui berapa banyak sumber daya yang digunakan, Waktu (Waktu yang diperlukan CPU untuk menjalankan program), Ruang(Besarnya penggunaan ruang memory ketika menjalankan algoritma)
+// 3. Kecepatan mesin, Compiler, OS, Bahasa pemograman, dan besarnya input
+// 4. Bubble sort, ketika data tersebut kecil bubblesort paling efisien karena ia mem
+// 5. Quadratic (Bubble sort, Insertion sort, Selection sort, Shellsort), Loglinear(Quicksort, Mergesort)
 //
 
-#include <iostream>
+int ling[57]; //array of integers to hold values
+int n;
+void input()
+{
+    while (true)
+    {
+        cout << "Masukan panjang element array: ";
+        cin >> n;
+
+        if (n <= 57)
+            break;
+        else
+            cout << "\nMaksimum panjang array adalah 20" << endl;
+    }
+    cout << "\n--------------------------" << endl;
+    cout << "\nEnter Array Element" << endl;
+    cout << "\n--------------------------" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << "<" << (i + 1) << ">";
+        cin >> ling[i];
+    }
+}
+
+void swap(int x, int y)
+{
+    int temp;
+    temp = ling[x];
+    ling[x] = ling[y];
+    ling[y] = temp;
+}
+
+void Selectionsort()
+{
+    for (int lr = 0; lr < n - 1; lr++)
+    {
+        for (lr; lr < n; lr++)
+        {
+            int minv = lr;
+            for (int i = (lr + 1); i < n; i++)
+            {
+                if (ling[i] < ling[minv])
+                {
+                    minv = i;
+                }
+            }
+            swap(lr, minv);
+        }
+    }
+}
+
+void display()
+{
+    cout << endl;
+    cout << "-----------------------" << endl;
+    cout << "Sorted Array" << endl;
+    cout << "-----------------------" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << ling[i] << " ";
+    }
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    input();
+    Selectionsort();
+    display();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
